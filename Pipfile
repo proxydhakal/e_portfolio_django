@@ -4,11 +4,12 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pylint = "*"
 
 [packages]
-django = "==2.2.2"
+django = "==3.0"
 pillow = "*"
 django-ckeditor = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
