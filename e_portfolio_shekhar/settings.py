@@ -25,7 +25,7 @@ SECRET_KEY = '9krvz=%^%57un$3afxy9t69xoxo33f%o^ql6o7k42d+=6g70^q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -84,8 +84,12 @@ WSGI_APPLICATION = 'e_portfolio_shekhar.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'portfolio',
+        'USER': 'proxydhakal',
+        'PASSWORD': 'portfolio123',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -139,5 +143,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     
 ]
-STATIC_ROOT='/home/proxydhakal/e_portfolio_shekhar/static/ckeditor'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/ckeditor/')
 CKEDITOR_UPLOAD_PATH = "uploads/"
