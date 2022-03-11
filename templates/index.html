@@ -1,0 +1,77 @@
+{% extends "partials/base.html" %} 
+{% load static %}
+{% block navbar %}
+{% include "partials/navbar.html" %}
+{% endblock navbar %}
+
+
+{% block homeslider %}
+{% include "partials/homeslider.html" %}
+{% endblock homeslider %}
+
+
+{% block about %}
+{% include "partials/about.html" %}
+{% endblock about %}
+		
+{% block skill %}
+{% include "partials/skill.html" %}
+{% endblock skill %}
+ 
+
+{% block project %}
+{% include "partials/project.html" %}
+{% endblock project %}
+
+
+{% block blog %}
+ <section class="ftco-section bg-light" id="blog-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 heading-section text-center ftco-animate">
+            <span class="subheading">Blog</span>
+            <h2 class="mb-4">My Blog</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+          </div>
+        </div>
+        <div class="row d-flex">
+        {% for blog in list_blog  %}
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <a href="single.html" class="block-20" style="background-image: url({{blog.cover_image.url}});">
+              </a>
+              <div class="text mt-3 float-right d-block">
+              	<div class="d-flex align-items-center mb-3 meta">
+	                <p class="mb-0">
+	                	<span class="mr-2">{{blog.created_at| date:"F,j Y" }}</span>
+	                	<a href="#" class="mr-2">{{blog.author}}</a>
+	                	<a href="#" class="meta-chat"><span class="icon-eye"></span>{{blog.count}}</a>
+	                </p>
+                </div>
+                <h3 class="heading"><a href="{{blog.get_absolute_url}}">{{blog.title}}</a></h3>
+                <p>{{blog.description|safe|truncatewords_html:10}}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+{% endblock blog %}
+
+{% block contact %}
+{% include "partials/contact.html" %}
+{% endblock contact %}
+		
+
+{% block footer %}
+{% include "partials/footer.html" %}
+{% endblock footer %}
+    
+{% block preloader %}
+{% include "partials/preloader.html" %}
+{% endblock preloader %}  
+
+{% block jquery %}
+{% include "partials/jquery.html" %}
+{% endblock jquery %}
